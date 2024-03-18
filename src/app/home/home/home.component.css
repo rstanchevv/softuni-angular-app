@@ -1,0 +1,7 @@
+.loading-wrapper {
+    margin-top: 400px;
+    margin-bottom: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,9 @@
+<div class="loading-wrapper" *ngIf="isLoading">
+    <app-loading-spinner />
+</div>
+
+<div *ngIf="!isLoading">
+    <app-tech-list />
+    <app-about />
+    <app-info />
+</div>
