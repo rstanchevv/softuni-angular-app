@@ -19,14 +19,16 @@ export class TechListComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.getDevices();
+    this.getLatestDevices();
     setTimeout(() => {
       this.isLoading = false;
     }, 1000);
   }
 
 
-  async getDevices() {
-    this.devices = await this.api.getDevices() as Device[]
+  getLatestDevices() {
+    this.api.getDevices().then((res) => {
+      this.devices = res.slice(-3) as Device[]
+    }).catch(err => console.log(err))
   }
 }
