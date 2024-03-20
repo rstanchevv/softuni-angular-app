@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "techkings-angular-demo-project": {
+      "hosting": {
+        "final-project": [
+          "techkings-angular-demo-project"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "techkings-angular-demo-project"
+  }
+}

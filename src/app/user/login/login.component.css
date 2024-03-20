@@ -1,0 +1,21 @@
+.form-wrapper {
+    background-color: #F9FAFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    flex-grow: 1;
+    height: 600px;
+}
+
+.form-wrapper img {
+    flex: 0 0 200;
+    max-height: 250px;
+}
+
+.form-wrapper form {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    flex: 0 0 400px;
+}

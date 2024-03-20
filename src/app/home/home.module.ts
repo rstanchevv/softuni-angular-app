@@ -4,8 +4,9 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { TechModule } from '../tech/tech.module';
 import { InfoComponent } from './info/info.component';
-import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
+import { HomeRoutingProfile } from './home-routing-module';
+import { UserModule } from '../user/user.module';
 
 
 
@@ -18,7 +19,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     TechModule,
-    SharedModule
+    SharedModule,
+    HomeRoutingProfile,
+    UserModule
   ],
   exports:[HomeComponent]
 })

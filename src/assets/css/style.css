@@ -57,10 +57,11 @@ body {
   text-transform: uppercase;
 }
 
+
+
 /* slider section */
 
-
-
+/* 
 .about_section {
   background-color: #f9fafa;
 }
@@ -331,7 +332,7 @@ body {
 
 .contact_section .map_container .map #googleMap {
   height: 100%;
-}
+} */
 
 /* .info_section {
   background-color: #191e1f;
@@ -506,10 +507,4 @@ body {
 .info_section .info_form .social_box a:hover {
   color: #f89646;
   border-color: #f89646;
-} */
-
-/* footer section*/
-
-
-
-/*# sourceMappingURL=style.css.map */
+}

@@ -42,9 +42,11 @@
     color: #f89646;
   }
   
-  .info_section .info_top {
-    padding: 45px 0;
+  .info_section .info_top .row {
+    align-items: center;
+    justify-content: center;
   }
+  
   
   .info_section h4 {
     text-transform: uppercase;
@@ -56,8 +58,13 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1em
+  }
+
+  .info_links h4 {
+    text-align: center;
   }
   
   .info_section .info_links .info_links_menu a {
