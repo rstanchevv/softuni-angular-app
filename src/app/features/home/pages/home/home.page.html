@@ -1,0 +1,6 @@
+<app-unauthenticated *ngIf="!isAuthenticated"></app-unauthenticated>
+<ng-container *ngIf="isAuthenticated">
+    <app-tech-list />
+    <app-about />
+    <app-info />
+</ng-container>

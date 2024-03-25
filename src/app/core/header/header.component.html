@@ -19,29 +19,38 @@
                             <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="furniture.html">Store</a>
+                            <a class="nav-link" routerLink="/store">Store</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/about"> About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="quote_btn-container">
-                    <a routerLink="/login">
-                        <span>
-                            Login
-                        </span>
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                    </a>
-                    <a routerLink="/register">
-                        <span>
-                            Register
-                        </span>
-                        <i class="fa-regular fa-user" aria-hidden="true"></i>
-                    </a>
+                    <ng-container *ngIf="isAuthenticated">
+                        <div class="profile-container">Logged user: <a routerLink="/profile">{{displayName}}</a></div>
+                        <a routerLink="/logout" (click)="onLogout($event)">
+                            <span>
+                                Logout
+                            </span>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                    </ng-container>
+                    <ng-container *ngIf="!isAuthenticated">
+                        <a routerLink="/login">
+                            <span>
+                                Login
+                            </span>
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                        <a routerLink="/register">
+                            <span>
+                                Register
+                            </span>
+                            <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        </a>
+                    </ng-container>
+                    
                 </div>
             </div>
         </nav>

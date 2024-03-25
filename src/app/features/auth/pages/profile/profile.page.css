@@ -1,0 +1,33 @@
+.container {
+    border: 2px solid gray;
+    display: flex;
+}
+
+
+.container .mat-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2em
+}
+.container .mat-card-header span {
+    font-size: 18px;
+
+}
+
+.container .mat-card-header img {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.container .profile-info {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.container .profile-info span {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}

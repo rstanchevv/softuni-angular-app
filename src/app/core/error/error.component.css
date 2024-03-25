@@ -1,0 +1,25 @@
+.error-wrapper {
+    background-color: #F9FAFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    flex-grow: 1;
+    height: 600px;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+.error-wrapper img {
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 0.75rem gray);
+}
+
+.error-text {
+    font-size: 16px;
+    width: 200px;
+    text-align: center;
+}

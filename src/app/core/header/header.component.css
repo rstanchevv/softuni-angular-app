@@ -146,3 +146,12 @@
   .quote_btn-container a span {
     margin-right: 5px;
   }
+
+  .profile-container {
+    text-transform: uppercase;
+  }
+
+  .profile-container a{
+    margin-right: 20px;
+    font-weight: bold;
+  }
