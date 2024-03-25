@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { ApiService } from 'src/app/core/device.service';
+import { ApiService } from 'src/app/features/store/services/store.service';
 import { Device } from 'src/app/models/Device';
 
 @Component({
@@ -22,7 +22,7 @@ export class TechListComponent implements OnInit {
 
 
   getLatestDevices() {
-    this.api.getDevices().then((res) => {
+    this.api.getLatest().then((res) => {
       this.devices = res.slice(-3) as Device[]
       if (this.devices.length < 1) {
         this.isEmpty = true;

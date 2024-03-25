@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, getDocs, query } from 'firebase/firestore';
+import { Firestore, getDoc } from '@angular/fire/firestore';
+import { collection, doc, getDocs, query } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private firestore: Firestore ) { }
 
-  async getDevices() {
+  async getLatest() {
     //   return (
 
    
@@ -23,6 +23,17 @@ export class ApiService {
       tempArr.push({deviceId: doc.id, ...doc.data()})
     })
     return tempArr;
+  }
+
+  async getSingleDevice(devId: string) {
+    const docRef = doc(this.firestore, "devices", devId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
   }
 }
 

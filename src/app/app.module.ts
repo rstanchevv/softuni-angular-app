@@ -11,11 +11,13 @@ import { HomeModule } from './features/home/home.module';
 import { AuthModule } from './features/auth/auth.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { StoreModule } from './features/store/store.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    StoreModule,
     CoreModule,
     HomeModule,
     AuthModule,
