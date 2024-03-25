@@ -6,9 +6,7 @@
     flex-wrap: wrap;
     gap: 2em;
     flex-grow: 1;
-    height: 600px;
-    margin-left: 45px;
-    margin-right: 45px;
+    height: 85vh;
 }
 
 .error-wrapper img {

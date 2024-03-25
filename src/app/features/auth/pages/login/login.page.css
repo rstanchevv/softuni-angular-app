@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     gap: 2em;
     flex-grow: 1;
-    height: 600px;
+    height: 85vh;
 }
 
 .form-wrapper img {

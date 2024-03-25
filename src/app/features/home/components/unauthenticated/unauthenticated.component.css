@@ -7,6 +7,7 @@
   gap: 2em;
   flex-grow: 1;
   height: 600px;
+  height: 85vh;
 }
 
 .slider_section .row {
