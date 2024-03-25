@@ -28,12 +28,7 @@ export class ApiService {
   async getSingleDevice(devId: string) {
     const docRef = doc(this.firestore, "devices", devId);
     const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
-    }
+    return docSnap.data();
   }
 }
 
