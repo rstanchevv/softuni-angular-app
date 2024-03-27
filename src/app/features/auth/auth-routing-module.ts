@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfilePage } from './pages/profile/profile.page';
 import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
+import { AuthGuard } from 'src/app/core/auth-guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginPage },
   { path: 'register', component: RegisterPage },
-   {path: 'profile', component: ProfilePage}
+   {path: 'profile', component: ProfilePage, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

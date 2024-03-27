@@ -5,10 +5,14 @@ import { Device } from 'src/app/models/Device';
 
 @Component({
   selector: 'app-tech-list',
-  templateUrl: './tech-list.component.html',
-  styleUrls: ['./tech-list.component.css'],
+  templateUrl: './tech-item.component.html',
+  styleUrls: ['./tech-item.component.css'],
 })
-export class TechListComponent implements OnInit {
+
+
+export class TechItemComponent implements OnInit {
+  errorMessage: string | null = null;
+  isLoading: boolean = true;
   device!: Device;
   constructor(
     private storeService: ApiService,
@@ -20,7 +24,11 @@ export class TechListComponent implements OnInit {
       const id = v['id'];
       this.storeService.getSingleDevice(id).then((res) => {
         this.device = res as Device
-      });
+        this.isLoading = false;
+        console.log(this.device)
+      }).catch(err => {
+        this.errorMessage = err
+      })
     });
   }
 }

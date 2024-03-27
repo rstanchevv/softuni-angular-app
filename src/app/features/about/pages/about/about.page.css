@@ -1,11 +1,7 @@
 .about_section {
     background-color: #f9fafa;
     display: flex;
-    flex-grow: 1;
     flex-wrap:wrap;
-    height: 85vh;
-    justify-content: center;
-    align-items: center;
   }
   
   .about_section .row {

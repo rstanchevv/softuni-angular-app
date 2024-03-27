@@ -9,13 +9,7 @@ export class ApiService {
 
   constructor(private firestore: Firestore ) { }
 
-  async getLatest() {
-    //   return (
-
-   
-    //    await getDocs(query(collection(this.firestore, 'devices')))
-    //   ).docs.map((devices) => devices.data());
-    //  }
+  async getAllDeivces() {
     const tempArr: {}[] = []
     const q = query(collection(this.firestore, 'devices'))
     const querySnapshot = await getDocs(q);

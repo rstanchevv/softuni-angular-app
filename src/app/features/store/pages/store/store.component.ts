@@ -1,29 +1,26 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
-import { ApiService } from 'src/app/features/store/services/store.service';
+import { Component } from '@angular/core';
+import { ApiService } from '../../services/store.service';
 import { Device } from 'src/app/models/Device';
 
 @Component({
-  selector: 'app-tech-list',
-  templateUrl: './tech-list.component.html',
-  styleUrls: ['./tech-list.component.css'],
+  selector: 'app-store',
+  templateUrl: './store.page.html',
+  styleUrls: ['./store.page.css']
 })
-export class TechListComponent implements OnInit {
+export class StorePage {
+
   devices: Device[] = [];
   isEmpty: boolean = false;
   isLoading: boolean = true;
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    this.getThreeDevices();
+    this.getAllDevcies();
   }
 
-
-  getThreeDevices() {
+  getAllDevcies() {
     this.api.getAllDeivces().then((res) => {
-      this.devices = res.slice(-3) as Device[]
+      this.devices = res as Device[]
       console.log(this.devices)
       if (this.devices.length < 1) {
         this.isEmpty = true;
@@ -31,4 +28,5 @@ export class TechListComponent implements OnInit {
       this.isLoading = false;
     }).catch(err => console.log(err))
   }
+
 }

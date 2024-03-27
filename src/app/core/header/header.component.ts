@@ -1,6 +1,8 @@
 
-import { Component, } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserCredential } from 'firebase/auth';
+import { AuthService } from 'src/app/features/auth/services/auth.service';
 import { AuthUser } from 'src/app/models/authUser';
 
 @Component({
@@ -9,13 +11,13 @@ import { AuthUser } from 'src/app/models/authUser';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
   get isAuthenticated() {
-    return !!localStorage.getItem('token');
+    return !!this.authService.user;
   }
 
   get displayName() {
-    const email = JSON.parse(localStorage.getItem('token') as AuthUser | any).email as string;
+    const email = this.authService.user?.user.email!
     const indexOf = email.indexOf('@');
     return email.substring(0, indexOf)
   }
@@ -23,6 +25,6 @@ export class HeaderComponent {
   onLogout(ev: Event): void {
     ev.preventDefault();
     this.router.navigate(['/']);
-    localStorage.removeItem('token');
+    this.authService.user = undefined;
   }
 }

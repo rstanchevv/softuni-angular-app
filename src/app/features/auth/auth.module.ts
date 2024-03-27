@@ -9,6 +9,7 @@ import { RegisterPage } from './pages/register/register.page';
 import { LoginPage } from './pages/login/login.page';
 import { ProfilePage } from './pages/profile/profile.page';
 import {MatCardModule} from '@angular/material/card';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 
@@ -26,6 +27,7 @@ import {MatCardModule} from '@angular/material/card';
     MatCardModule,
     AuthRoutingModule,
     FormsModule,
+    CoreModule
   ],
   exports: [],
 })

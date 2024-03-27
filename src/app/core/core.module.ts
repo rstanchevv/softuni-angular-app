@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
+import { AuthModule } from '@angular/fire/auth';
 
 
 
@@ -11,11 +12,12 @@ import { ErrorComponent } from './error/error.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    AuthModule
   ],
   exports: [HeaderComponent,FooterComponent]
 })

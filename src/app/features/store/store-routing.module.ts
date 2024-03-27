@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TechListComponent } from './components/tech-list/tech-list.component';
+import { TechItemComponent, } from './components/tech-list/tech-item.component';
+import { StorePage } from './pages/store/store.component';
+import { AuthGuard } from 'src/app/core/auth-guard';
 
 const routes: Routes = [
   {
     path: 'store',
-    component: TechListComponent,
+    component: StorePage,
+    canActivate: [AuthGuard]
   },
-  { path: 'home/store/:id', component: TechListComponent },
+  { path: 'store/:id', component: TechItemComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

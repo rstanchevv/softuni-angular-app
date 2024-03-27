@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Timestamp } from 'firebase/firestore';
 import { AuthUser } from 'src/app/models/authUser';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,21 +9,13 @@ import { AuthUser } from 'src/app/models/authUser';
   styleUrls: ['./profile.page.css'],
 })
 export class ProfilePage {
+  constructor(private authService: AuthService) {}
   get email() {
-    return JSON.parse(localStorage.getItem('token') as AuthUser | any)
-      .email as string;
+    return this.authService.user?.user.email;
   }
 
   get createdAt() {
-    const timestamp = Number(
-      JSON.parse(localStorage.getItem('token') as AuthUser | any).createdAt
-    );
-    return this.convetDate(timestamp).toLocaleDateString("en-Us");
+    const timestamp = this.authService.user?.user.metadata.creationTime;
+    return timestamp;
   }
-
-  convetDate(timestamp: number) {
-    let date = new Date(timestamp);
-    return date;
-  }
-  
 }

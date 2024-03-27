@@ -1,0 +1,36 @@
+<section class="furniture_section">
+    <h2>Store listing:</h2>
+    <div class="container">
+        <div *ngIf="isLoading" class="loading-wrapper">
+            <app-loading-spinner />
+        </div>
+        <div *ngIf="!isLoading">
+            <div *ngIf="isEmpty" class="no-items">Unfortunately, there are no items listed so far.<br>We'll do our best
+                to offer some soon!</div>
+            <div *ngIf="!isEmpty">
+                <div class="row">
+                    <div *ngFor="let device of devices" class="col-md-6 col-lg-4">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src={{device.img}} alt="">
+                            </div>
+                            <div class="detail-box">
+                                <a [routerLink]="[device.deviceId] ">
+                                    <h5>{{device.name}}</h5>
+                                </a>
+                                <div class="price_box">
+                                    <h6 class="price_heading">
+                                        <span>$</span> {{device.price}}
+                                    </h6>
+                                    <a href="">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

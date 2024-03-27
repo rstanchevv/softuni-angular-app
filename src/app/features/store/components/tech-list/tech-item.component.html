@@ -1,0 +1,13 @@
+<div class="card-container">
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+    <ng-container *ngIf="!isLoading">
+        <mat-card class="example-card">
+            <img mat-card-image src="{{device.img}}" alt="Photo of a Shiba Inu">
+            <div class="card-details">
+                <span>{{device.name}}</span>
+                <span>{{device.details}}</span>
+            </div>
+        </mat-card>
+    </ng-container>
+</div>
+
