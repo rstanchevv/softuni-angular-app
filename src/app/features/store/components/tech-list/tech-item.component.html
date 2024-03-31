@@ -5,9 +5,10 @@
             <img mat-card-image src="{{device.img}}" alt="Photo of a Shiba Inu">
             <div class="card-details">
                 <span>{{device.name}}</span>
-                <span>{{device.details}}</span>
+                <div class="card-specifications">
+                    <p><span>Specifications:</span> {{device.details}}</p>
+                </div>
             </div>
         </mat-card>
     </ng-container>
 </div>
-

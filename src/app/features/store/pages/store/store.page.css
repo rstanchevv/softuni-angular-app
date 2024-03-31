@@ -1,11 +1,18 @@
 
 .furniture_section {
-    border: 2px solid gray;
-    padding: 10px 0 10px 0 
+    padding: 10px 0 10px 0;
+    background-color: #f9fafa;
+}
+
+.heading_container {
+  justify-content: center;
+  text-align: center;
 }
 
 .furniture_section h2 {
     text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .furniture_section .box {
@@ -64,6 +71,16 @@
     color: #6bb7be;
     text-transform: uppercase;
     font-size: 15px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
+
+  .btn-container a {
+    color: white;
   }
 
   .loading-wrapper {

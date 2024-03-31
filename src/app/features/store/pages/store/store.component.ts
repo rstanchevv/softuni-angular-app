@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/store.service';
 import { Device } from 'src/app/models/Device';
+import { AuthService } from 'src/app/features/auth/services/auth.service';
 
 @Component({
   selector: 'app-store',
@@ -8,11 +9,14 @@ import { Device } from 'src/app/models/Device';
   styleUrls: ['./store.page.css']
 })
 export class StorePage {
-
   devices: Device[] = [];
   isEmpty: boolean = false;
   isLoading: boolean = true;
-  constructor(private api: ApiService) {}
+
+  get isAuthenticated() {
+    return this.authService.isLogged;
+  }
+  constructor(private api: ApiService,private authService: AuthService) {}
 
   ngOnInit(): void {
     this.getAllDevcies();

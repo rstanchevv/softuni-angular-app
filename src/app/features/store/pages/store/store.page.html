@@ -1,5 +1,15 @@
 <section class="furniture_section">
-    <h2>Store listing:</h2>
+    <div *ngIf="isAuthenticated" class="btn-container">
+        <a type="button" class="btn btn-primary" routerLink="create">Create offer</a>
+    </div>
+    <div class="heading_container">
+        <h2>
+            Our offers
+        </h2>
+        <p>
+            Check the currently available offers!
+        </p>
+    </div>
     <div class="container">
         <div *ngIf="isLoading" class="loading-wrapper">
             <app-loading-spinner />

@@ -5,7 +5,7 @@
 
 .example-card {
   display: flex;
-  width: 1000px;
+  max-width: 1000px;
   max-height: 65vh;
   flex-direction: row;
   gap:2em
@@ -13,7 +13,7 @@
 }
 
 .example-card img {
-    width: 60%;
+    width: 50%;
     border-radius: 10px;
     aspect-ratio: 1/1;
     background-size: cover;
@@ -21,17 +21,27 @@
 
 .card-details {
   display: flex;
-  width: 40%;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 4em;
   font-size: 16px;
 }
 
-.card-details span:first-child{
+.card-details>span{
   margin-top: 20px;
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
   font-size: 24px;
+}
+
+.card-specifications{
+  width: fit-content;
+  height: fit-content;
+}
+
+.card-specifications p span {
+  text-transform: uppercase;  
+  font-weight: bold;
 }
 
