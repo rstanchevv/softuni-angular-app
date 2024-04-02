@@ -2,21 +2,36 @@
     <form  [formGroup]="editForm" (ngSubmit)="onSubmit()" >
         <div class="form-group">
             <label for="title">Name</label>
-            <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter title" value="{{currentValues.name}}" formControlName="name">
+            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter title" value="{{currentValues.name}}" formControlName="name">
         </div>
+        <ng-container *ngIf="editForm.get('name')?.touched">
+            <div class="error" *ngIf="editForm.get('name')?.errors?.['required']" style="color:red">Name field is required!</div>
+            <div class="error" *ngIf="editForm.get('name')?.errors?.['minlength']" style="color:red">Min allowed length is 5 characters!</div>
+        </ng-container>
         <div class="form-group">
             <label for="details">Details</label>
             <input type="text" class="form-control" id="details" placeholder="Details" formControlName="details" value="{{currentValues.details}}" formControlName="details">
         </div>
+        <ng-container *ngIf="editForm.get('details')?.touched">
+            <div class="error" *ngIf="editForm.get('details')?.errors?.['required']" style="color:red">Details field is required!</div>
+            <div class="error" *ngIf="editForm.get('details')?.errors?.['minlength']" style="color:red">Min allowed length is 10 characters!</div>
+        </ng-container>
         <div class="form-group">
             <label for="img">Image</label>
-            <input type="text" class="form-control" id="Image" placeholder="Image url" formControlName="img" value="{{currentValues.img}}" formControlName="img">
+            <input type="text" class="form-control" id="img" placeholder="Image url" formControlName="img" value="{{currentValues.img}}" formControlName="img" appUrl="">
         </div>
+        <ng-container *ngIf="editForm.get('img')?.touched">
+            <div class="error" *ngIf="editForm.get('img')?.errors?.['required']" style="color:red">Image field is required!</div>
+            <div class="error" *ngIf="editForm.get('img')?.errors?.['urlValidator']" style="color:red">Image should be a valid link, starting with http/s!</div>
+        </ng-container>
         <div class="form-group">
             <label for="price">Price</label>
             <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price" value="{{currentValues.price}}" formControlName="price">
         </div>
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <ng-container *ngIf="editForm.get('price')?.touched">
+            <div class="error" *ngIf="editForm.get('price')?.errors?.['required']" style="color:red">Price field is required!</div>
+        </ng-container>
+        <button [disabled]="!editForm.valid" type="submit" class="btn btn-primary">Edit</button>
         <a (click)="onReset()" class="btn btn-warning">Reset</a>
     </form>
 </div>

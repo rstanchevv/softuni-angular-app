@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
+import { emailValidator } from 'src/app/shared/utils/email-validator';
 
 @Component({
   selector: 'app-register',
@@ -13,9 +14,9 @@ export class RegisterPage {
   errorMessage: string | null = null;
 
   registerForm = this.fb.group({
-    email: '',
-    password: '',
-    rePassword: '',
+    email: ['', [Validators.required, emailValidator]],
+    password: ['', [Validators.required, Validators.minLength(5)]],
+    rePassword: ['', [Validators.required]],
   });
   constructor(
     private fb: FormBuilder,

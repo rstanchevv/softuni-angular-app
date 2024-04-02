@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../services/store.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
+import { urlValidator } from 'src/app/shared/utils/url-validator';
+
 
 @Component({
   selector: 'app-create-item',
@@ -12,10 +14,10 @@ import { AuthService } from 'src/app/features/auth/services/auth.service';
 export class CreateItemPage {
   errorMessage: string | null = null;
   createForm = this.fb.group({
-    name: '',
-    details: '',
-    img: '',
-    price: '',
+    name: ['', [Validators.required, Validators.minLength(5)]],
+    details: ['', [Validators.required, Validators.minLength(10)]],
+    img: ['', [Validators.required, urlValidator]],
+    price: ['', [Validators.required]],
   });
   constructor(
     private fb: FormBuilder,
