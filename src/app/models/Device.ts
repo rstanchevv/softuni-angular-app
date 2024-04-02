@@ -1,9 +1,9 @@
 export interface Device {
   name: string
   details: string
-  boughtBy: string[];
+  boughtBy: string;
   ownerId: string;
   img: string;
-  price: number
+  price: string;
   deviceId:string
 }

@@ -54,3 +54,9 @@
   font-weight: bold;
 }
 
+.badge {
+  font-size: 18px;
+  margin-bottom: 1.5em;
+  color: white;
+}
+

@@ -6,8 +6,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { TechItemComponent } from './components/tech-list/tech-item.component';
 import { StorePage } from './pages/store/store.component';
 import { RouterModule } from '@angular/router';
-import { CreateItemComponent } from './components/create-item/create-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateItemPage } from './pages/create-item/create-item.page';
+import { EditItemPage } from './pages/edit-item/edit-item.component';
 
 
 
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     TechItemComponent,
     StorePage,
-    CreateItemComponent
+    CreateItemPage,
+    EditItemPage
   ],
   imports: [
     CommonModule,

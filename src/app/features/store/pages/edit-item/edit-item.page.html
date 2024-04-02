@@ -1,0 +1,22 @@
+<div class="form-wrapper">
+    <form  [formGroup]="editForm" (ngSubmit)="onSubmit()" >
+        <div class="form-group">
+            <label for="title">Name</label>
+            <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter title" value="{{currentValues.name}}" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="details">Details</label>
+            <input type="text" class="form-control" id="details" placeholder="Details" formControlName="details" value="{{currentValues.details}}" formControlName="details">
+        </div>
+        <div class="form-group">
+            <label for="img">Image</label>
+            <input type="text" class="form-control" id="Image" placeholder="Image url" formControlName="img" value="{{currentValues.img}}" formControlName="img">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price" value="{{currentValues.price}}" formControlName="price">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a (click)="onReset()" class="btn btn-warning">Reset</a>
+    </form>
+</div>

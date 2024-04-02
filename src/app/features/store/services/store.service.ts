@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, getDoc } from '@angular/fire/firestore';
+import { Firestore, getDoc, updateDoc } from '@angular/fire/firestore';
 import {
   collection,
   deleteDoc,
@@ -8,12 +8,13 @@ import {
   query,
   setDoc,
 } from 'firebase/firestore';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore, private authService: AuthService) {}
 
   async getAllDeivces() {
     const tempArr: {}[] = [];
@@ -35,7 +36,7 @@ export class ApiService {
     const docRef = doc(this.firestore, 'devices', devId);
     const docSnap = await getDoc(docRef);
     const currentDoc = docSnap.data();
-    setDoc(docRef, { ...currentDoc, isBought: true });
+    setDoc(docRef, { ...currentDoc, isBought: true, boughtBy: this.authService.user?.user.uid });
   }
 
   async createDevice(
@@ -43,7 +44,7 @@ export class ApiService {
     details: string,
     img: string,
     price: string,
-    ownerId: string
+    ownerId: string,
   ) {
     await setDoc(doc(collection(this.firestore, 'devices')), {
       name,
@@ -52,7 +53,13 @@ export class ApiService {
       price,
       ownerId,
       isBought: false,
+      boughtBy: ''
     });
+  }
+
+  async editDevice(id: string, newValuesObj: {} ){
+    const currentDevice = doc(this.firestore, 'devices', id);
+    await updateDoc(currentDevice, newValuesObj)
   }
 
   async deleteDevice(id: string) {

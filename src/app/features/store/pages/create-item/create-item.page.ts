@@ -6,10 +6,10 @@ import { AuthService } from 'src/app/features/auth/services/auth.service';
 
 @Component({
   selector: 'app-create-item',
-  templateUrl: './create-item.component.html',
-  styleUrls: ['./create-item.component.css'],
+  templateUrl: './create-item.page.html',
+  styleUrls: ['./create-item.page.css'],
 })
-export class CreateItemComponent {
+export class CreateItemPage {
   errorMessage: string | null = null;
   createForm = this.fb.group({
     name: '',
@@ -37,5 +37,9 @@ export class CreateItemComponent {
           console.log(err);
         });
       });
+  }
+
+  onReset(){
+    this.createForm.reset();
   }
 }

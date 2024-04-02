@@ -13,6 +13,8 @@ export class TechItemComponent implements OnInit {
   errorMessage: string | null = null;
   isLoading: boolean = true;
   device!: Device;
+  deviceOwner!: string;
+  
   constructor(
     private storeService: ApiService,
     private activatedRoute: ActivatedRoute,
@@ -25,15 +27,19 @@ export class TechItemComponent implements OnInit {
   }
 
   get isOwner() {
-    let deviceOwner;
-    this.activatedRoute.params.subscribe((v) => {
-      const id = v['id'];
-      this.storeService.getSingleDevice(id).then((res) => {
-        deviceOwner = res as Device;
-        return deviceOwner.ownerId == this.authService.user?.user.uid
-      }).catch(err => console.log(err))
-    })
-    return false;
+    if (this.device.ownerId == this.authService.user?.user.uid){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  get isBought() {
+    if (this.device.boughtBy == this.authService.user?.user.uid){
+      return true
+    } else {
+      return false;
+    }
   }
 
   ngOnInit(): void {

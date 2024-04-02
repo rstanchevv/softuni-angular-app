@@ -1,0 +1,12 @@
+.form-wrapper {
+    background-color: #f9fafa;
+}
+
+.form-wrapper form {
+margin: 40px;
+padding: 20px;
+}
+
+.btn-primary {
+margin-right: 1.5em;
+}

@@ -7,12 +7,22 @@
                 <span>{{device.name}}</span>
                 <div class="card-specifications">
                     <p><span>Specifications:</span> {{device.details}}</p>
+                    <p><span>Price: </span>{{device.price}} $</p>
                 </div>
-                <div class="buttons">
-                    <button type="button" class="btn btn-success" (click)="buyDevice()">Buy</button>
-                    <button type="button" class="btn btn-info">Edit</button>
-                    <button type="button" class="btn btn-danger" (click)="deleteDevice()">Delete</button>
-                </div>
+                <ng-container *ngIf="isAuthenticated">
+                    <div class="buttons">
+                        <ng-container *ngIf="!isOwner && isBought">
+                            <span class="badge bg-success">You bought this product!</span>
+                        </ng-container>
+                        <ng-container *ngIf="!isOwner && !isBought">
+                            <button type="button" class="btn btn-success"
+                                (click)="buyDevice()">Buy</button></ng-container>
+                        <ng-container *ngIf="isOwner">
+                            <a type="button" class="btn btn-info" routerLink="edit">Edit</a>
+                            <button type="button" class="btn btn-danger" (click)="deleteDevice()">Delete</button>
+                        </ng-container>
+                    </div>
+                </ng-container>
             </div>
         </mat-card>
     </ng-container>
