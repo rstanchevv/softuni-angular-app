@@ -24,13 +24,18 @@ export class CreateItemComponent {
     private authService: AuthService
   ) {}
 
-  onSubmit(){
-    if (this.createForm.invalid){
+  onSubmit() {
+    if (this.createForm.invalid) {
       return;
     }
-    const ownerId = this.authService.user?.user.uid
-
-    const {name, details, img, price} = this.createForm.value;
-    this.apiService.createDevice(name!, details!, img!, price!, ownerId!);
+    const ownerId = this.authService.user?.user.uid;
+    const { name, details, img, price } = this.createForm.value;
+    this.apiService
+      .createDevice(name!, details!, img!, price!, ownerId!)
+      .then(() => {
+        this.router.navigate(['/store']).catch((err) => {
+          console.log(err);
+        });
+      });
   }
 }

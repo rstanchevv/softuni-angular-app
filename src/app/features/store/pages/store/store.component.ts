@@ -25,7 +25,6 @@ export class StorePage {
   getAllDevcies() {
     this.api.getAllDeivces().then((res) => {
       this.devices = res as Device[]
-      console.log(this.devices)
       if (this.devices.length < 1) {
         this.isEmpty = true;
       }

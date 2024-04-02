@@ -38,7 +38,6 @@ export class RegisterPage {
       .register(rawForm.email as any, rawForm.password as any)
       .subscribe({
         next: (x) => {
-          console.log(x)
           this.router.navigate(['/']);
         },
         error: (err) => {

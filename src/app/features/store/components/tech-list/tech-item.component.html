@@ -2,11 +2,16 @@
     <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
     <ng-container *ngIf="!isLoading">
         <mat-card class="example-card">
-            <img mat-card-image src="{{device.img}}" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="{{device.img}}" alt="No image">
             <div class="card-details">
                 <span>{{device.name}}</span>
                 <div class="card-specifications">
                     <p><span>Specifications:</span> {{device.details}}</p>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="btn btn-success" (click)="buyDevice()">Buy</button>
+                    <button type="button" class="btn btn-info">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteDevice()">Delete</button>
                 </div>
             </div>
         </mat-card>

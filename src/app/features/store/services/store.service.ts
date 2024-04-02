@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Firestore, getDoc } from '@angular/fire/firestore';
-import { collection, doc, getDocs, query, setDoc } from 'firebase/firestore';
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+} from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -24,12 +31,19 @@ export class ApiService {
     return docSnap.data();
   }
 
+  async buyDevice(devId: string) {
+    const docRef = doc(this.firestore, 'devices', devId);
+    const docSnap = await getDoc(docRef);
+    const currentDoc = docSnap.data();
+    setDoc(docRef, { ...currentDoc, isBought: true });
+  }
+
   async createDevice(
     name: string,
     details: string,
     img: string,
     price: string,
-    ownerId: string,
+    ownerId: string
   ) {
     await setDoc(doc(collection(this.firestore, 'devices')), {
       name,
@@ -37,7 +51,11 @@ export class ApiService {
       img,
       price,
       ownerId,
-      isBought: false
+      isBought: false,
     });
+  }
+
+  async deleteDevice(id: string) {
+    await deleteDoc(doc(this.firestore, 'devices', id));
   }
 }
