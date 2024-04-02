@@ -1,4 +1,4 @@
-React Softuni App is an application that has been developed for the exam at the end of the React course.
+Angular Softuni App is an application that has been developed for the final exam at the end of the Angular course.
 
 # TechKings
 
