@@ -1,27 +1,62 @@
-# FinalProject
+React Softuni App is an application that has been developed for the exam at the end of the React course.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+# TechKings
 
-## Development server
+The application represents a SPA application where users could see/post/edit/delete/buy offers.
+For the purpose of Front-End development it was used Angular@16.
+For the purpose of storing information and authentication/authorization it was used Firestore.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Roles
 
-## Code scaffolding
+Non-authenticated users can visit the application and are authorized to see and use:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    * Register - allows the user to Register and perform authenticated operations afterwards
+    * Login - allows the user to Login with an existing account and perform authenticated operations afterwards
+    * Offers - allows the user to see all open offers that have not been bought yet
+    * Offer details - allows the user to see more details of an offer such as its category, price and details
 
-## Build
+Authenticated users (non-owners) can visit the application and are authorized to see and use:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    * Profile - allows the user to see who is logged in currently as well as the offers that have been bought by the current user
+    * Offers - allows the user to see all open offers that have not been bought yet
+    * Offers details - allows the user to see more details of an offer such as price, details. They can also buy an offer.
+    * Offer details buy - functionality that allows the user to buy a specific item. Once bought, the offer is no longer displayed in the "Offers" and could be found under the buyer's profile
+    * Bought offer delete - funcionaliy that allows the buyer to delete the offer from their bought list.
 
-## Running unit tests
+Authenticated users (owners) can visit the application and are authorized to see and use:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    * Profile - allows the user to see who is logged in currently as well as the offers that have been bought by the current user
+    * Offers - allows the user to see all open offers that have not been bought yet
+    * Offers details - allows the user to see more details of an offer such as its category, price and detail as well as to edit or delete it
+    * Offer details edit - functionality that allows the user to change the details of an offer that is under their ownership;
+    * Offer details delete - functionality that allows the user to delete an offer that is under their ownership;
+    * Bought offer delete - funcionaliy that allows the buyer to delete the offer from their bought list.
+    
 
-## Running end-to-end tests
+# Routes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* Routes
+    * / - Displays home page;
+    * /store - Displays all offers;
+    * /login - Displays Login page;
+    * /register - Displays Register page;
+    * /store/:id - Displays specific offer's details
+    * /profile - Displays user's profile data and the offers that have been bought so far;
+    * /store/:id/edit - Displays a form in which the the owner of the offer could edit the offer's details
+    * /store/create - Displays a form in which authenticated users could create an offer
 
-## Further help
+# How to run the project
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+In order to run the project on your own, you need to run the following commands:
+
+* ng serve
+
+Once the last command has been exectued, the terminal will display the port at which you could access the application.
+
+<!-- #Firebase hosting
+
+The applications has also been published on a free hosting provided by Firebase.
+URL: https://testproject-4e7a7.web.app/
+
+Please note that the application stored on Firebase might differ from the source code in GitHub as we cannot ensure that the latest version will be available as soon as developed. -->
+
