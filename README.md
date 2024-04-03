@@ -37,12 +37,13 @@ Authenticated users (owners) can visit the application and are authorized to see
 
 * Routes
     * / - Displays home page;
+    * /about - displays About part of the page;
     * /store - Displays all offers;
     * /login - Displays Login page;
     * /register - Displays Register page;
     * /store/:id - Displays specific offer's details
     * /profile - Displays user's profile data and the offers that have been bought so far;
-    * /store/:id/edit - Displays a form in which the the owner of the offer could edit the offer's details
+    * /store/:id/edit - Displays a form in which the owner of the offer could edit the offer's details
     * /store/create - Displays a form in which authenticated users could create an offer
 
 # How to run the project
