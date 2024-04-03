@@ -37,8 +37,17 @@ export class CreateItemPage {
       .then(() => {
         this.router.navigate(['/store']).catch((err) => {
           console.log(err);
+        }).catch(err => {
+          this.errorMessage = err;
+          this.hideErrorMessage()
         });
       });
+  }
+
+  hideErrorMessage(): void {
+    setTimeout(() => {
+      this.errorMessage = null;
+    }, 2000);
   }
 
   onReset(){

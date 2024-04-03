@@ -40,14 +40,15 @@ export class EditItemPage implements OnInit {
       this.apiService
         .getSingleDevice(id)
         .then((res) => {
-          this.currentValues = res! as Device
-        }).then(() => {
+          this.currentValues = res! as Device;
+        })
+        .then(() => {
           this.editForm.patchValue({
             name: this.currentValues.name,
             details: this.currentValues.details,
             price: this.currentValues.price,
-            img: this.currentValues.img
-          })
+            img: this.currentValues.img,
+          });
         })
         .catch((err) => console.log(err));
     });
@@ -60,13 +61,25 @@ export class EditItemPage implements OnInit {
     }
     this.activatedRoute.params.subscribe((v) => {
       const id = v['id'];
-      this.apiService.editDevice(id, this.editForm.value).then(() => {
-        this.router.navigate(['/store']);
-      });
+      this.apiService
+        .editDevice(id, this.editForm.value)
+        .then(() => {
+          this.router.navigate(['/store']);
+        })
+        .catch((e) => {
+          this.errorMessage = e;
+          this.hideErrorMessage();
+        });
     });
   }
 
-  onReset(){
+  hideErrorMessage(): void {
+    setTimeout(() => {
+      this.errorMessage = null;
+    }, 2000);
+  }
+
+  onReset() {
     this.editForm.reset();
   }
 }

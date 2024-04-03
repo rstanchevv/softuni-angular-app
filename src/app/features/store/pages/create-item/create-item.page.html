@@ -6,32 +6,39 @@
                 formControlName="name">
         </div>
         <ng-container *ngIf="createForm.get('name')?.touched">
-            <div class="error" *ngIf="createForm.get('name')?.errors?.['required']" >Name field is required!</div>
-            <div class="error" *ngIf="createForm.get('name')?.errors?.['minlength']" >Min allowed length is 5 characters!</div>
+            <div class="error" *ngIf="createForm.get('name')?.errors?.['required']">Name field is required!</div>
+            <div class="error" *ngIf="createForm.get('name')?.errors?.['minlength']">Min allowed length is 5 characters!
+            </div>
         </ng-container>
         <div class="form-group">
             <label for="details">Details</label>
             <input type="text" class="form-control" id="details" placeholder="Details" formControlName="details">
         </div>
         <ng-container *ngIf="createForm.get('details')?.touched">
-            <div class="error" *ngIf="createForm.get('details')?.errors?.['required']" style="color:red">Details field is required!</div>
-            <div class="error" *ngIf="createForm.get('details')?.errors?.['minlength']" style="color:red">Min allowed length is 10 characters!</div>
+            <div class="error" *ngIf="createForm.get('details')?.errors?.['required']" style="color:red">Details field
+                is required!</div>
+            <div class="error" *ngIf="createForm.get('details')?.errors?.['minlength']" style="color:red">Min allowed
+                length is 10 characters!</div>
         </ng-container>
         <div class="form-group">
             <label for="img">Image</label>
-            <input type="text" class="form-control" id="img" placeholder="Image url" formControlName="img" appUrl="" >
+            <input type="text" class="form-control" id="img" placeholder="Image url" formControlName="img" appUrl="">
         </div>
         <ng-container *ngIf="createForm.get('img')?.touched">
-            <div class="error" *ngIf="createForm.get('img')?.errors?.['required']" style="color:red">Image field is required!</div>
-            <div class="error" *ngIf="createForm.get('img')?.errors?.['urlValidator']" style="color:red">Image should be a valid link, starting with http/s!</div>
+            <div class="error" *ngIf="createForm.get('img')?.errors?.['required']" style="color:red">Image field is
+                required!</div>
+            <div class="error" *ngIf="createForm.get('img')?.errors?.['urlValidator']" style="color:red">Image should be
+                a valid link, starting with http/s!</div>
         </ng-container>
         <div class="form-group">
             <label for="price">Price</label>
             <input type="number" class="form-control" id="price" placeholder="Price" formControlName="price">
         </div>
         <ng-container *ngIf="createForm.get('price')?.touched">
-            <div class="error" *ngIf="createForm.get('price')?.errors?.['required']" style="color:red">Price field is required!</div>
+            <div class="error" *ngIf="createForm.get('price')?.errors?.['required']" style="color:red">Price field is
+                required!</div>
         </ng-container>
+        <div class="error">{{errorMessage}}</div>
         <button [disabled]="!createForm.valid" type="submit" class="btn btn-primary">Create</button>
         <a (click)="onReset()" class="btn btn-warning">Reset</a>
     </form>
