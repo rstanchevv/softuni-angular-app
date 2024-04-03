@@ -3,13 +3,21 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email"
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email" appEmail=""
                 placeholder="Enter email">
         </div>
+        <ng-container *ngIf="loginForm.get('email')?.touched">
+            <div class="error" *ngIf="loginForm.get('email')?.errors?.['required']">Email field is required.</div>
+            <div class="error" *ngIf="loginForm.get('email')?.errors?.['emailValidator']">You need to use a real email address!</div>
+        </ng-container>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+            <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
         </div>
+        <ng-container *ngIf="loginForm.get('password')?.touched">
+            <div class="error" *ngIf="loginForm.get('password')?.errors?.['required']">Password field is required!</div>
+            <div class="error" *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at lest 5 characters!</div>
+        </ng-container>
         <div class="error">{{errorMessage}}</div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

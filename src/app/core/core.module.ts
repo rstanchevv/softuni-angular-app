@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
 import { AuthModule } from '@angular/fire/auth';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,

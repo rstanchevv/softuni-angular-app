@@ -1,9 +1,7 @@
 
-import { Component, OnInit, } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserCredential } from 'firebase/auth';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
-import { AuthUser } from 'src/app/models/authUser';
 
 @Component({
   selector: 'app-header',

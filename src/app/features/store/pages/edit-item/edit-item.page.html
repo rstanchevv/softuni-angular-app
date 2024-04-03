@@ -26,7 +26,7 @@
         </ng-container>
         <div class="form-group">
             <label for="price">Price</label>
-            <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price" value="{{currentValues.price}}" formControlName="price">
+            <input type="number" class="form-control" id="price" placeholder="Price" formControlName="price" value="{{currentValues.price}}" formControlName="price">
         </div>
         <ng-container *ngIf="editForm.get('price')?.touched">
             <div class="error" *ngIf="editForm.get('price')?.errors?.['required']" style="color:red">Price field is required!</div>

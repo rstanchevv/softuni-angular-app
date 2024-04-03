@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs';
 import { emailValidator } from 'src/app/shared/utils/email-validator';
 
 @Component({
@@ -16,7 +15,7 @@ export class RegisterPage {
   registerForm = this.fb.group({
     email: ['', [Validators.required, emailValidator]],
     password: ['', [Validators.required, Validators.minLength(5)]],
-    rePassword: ['', [Validators.required]],
+    rePassword: ['', [Validators.required, Validators.minLength(5)]],
   });
   constructor(
     private fb: FormBuilder,
@@ -47,11 +46,5 @@ export class RegisterPage {
           this.hideErrorMessage();
         },
       });
-    // .((e) => {
-    //   console.log(e);
-    //   this.errorMessage = e as string | null;
-    //   this.registerForm.reset();
-    //   this.hideErrorMessage();
-    // });
   }
 }

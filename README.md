@@ -53,10 +53,10 @@ In order to run the project on your own, you need to run the following commands:
 
 Once the last command has been exectued, the terminal will display the port at which you could access the application.
 
-<!-- #Firebase hosting
+#Firebase hosting
 
 The applications has also been published on a free hosting provided by Firebase.
-URL: https://testproject-4e7a7.web.app/
+URL: https://techkings-angular-demo-project.web.app/
 
-Please note that the application stored on Firebase might differ from the source code in GitHub as we cannot ensure that the latest version will be available as soon as developed. -->
+Please note that the application stored on Firebase might differ from the source code in GitHub as we cannot ensure that the latest version will be available as soon as developed
 

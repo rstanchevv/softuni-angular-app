@@ -24,7 +24,8 @@
             <input type="password" class="form-control" id="rePassword" placeholder="Password" formControlName="rePassword" >
         </div>
         <ng-container *ngIf="registerForm.get('rePassword')?.touched">
-            <div class="error" *ngIf="registerForm.get('rePassword')?.errors?.['required']">Repassword field is required!</div>
+            <div class="error" *ngIf="registerForm.get('rePassword')?.errors?.['required']">Repeat password field is required!</div>
+            <div class="error" *ngIf="registerForm.get('rePassword')?.errors?.['minlength']">Repeat password must be at lest 5 characters!</div>
         </ng-container>
         <div class="error">{{errorMessage}}</div>
         <button type="submit" class="btn btn-primary">Submit</button>

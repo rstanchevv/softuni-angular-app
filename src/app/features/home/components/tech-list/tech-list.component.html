@@ -15,7 +15,7 @@
                 <div *ngIf="isEmpty" class="no-items">Unfortunately, there are no items listed so far.<br>We'll do our best to offer some soon!</div>
             <div *ngIf="!isEmpty">
                 <div class="row">
-                    <div *ngFor="let device of devices" class="col-md-6 col-lg-4">
+                    <div *ngFor="let device of notBought" class="col-md-6 col-lg-4">
                         <div class="box">
                             <div class="img-box">
                                 <img src={{device.img}} alt="">

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { emailValidator } from 'src/app/shared/utils/email-validator';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,8 @@ import { Router } from '@angular/router';
 export class LoginPage {
   errorMessage: string | null = null;
   loginForm = this.fb.group({
-    email: '',
-    password: '',
+    email: ['', [Validators.required, emailValidator]],
+    password: ['', [Validators.required, Validators.minLength(5)]]
   });
 
   constructor(

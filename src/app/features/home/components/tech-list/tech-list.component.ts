@@ -10,6 +10,7 @@ import { Device } from 'src/app/models/Device';
 })
 export class TechListComponent implements OnInit {
   devices: Device[] = [];
+  notBought: Device[] = [];
   isEmpty: boolean = false;
   isLoading: boolean = true;
   constructor(
@@ -26,8 +27,11 @@ export class TechListComponent implements OnInit {
     this.api
       .getAllDeivces()
       .then((res) => {
-        this.devices = res.slice(-3) as Device[];
-        if (this.devices.length < 1) {
+        this.devices = res as Device[];
+      })
+      .then(() => {
+        this.notBought = this.devices.filter(x => !x.boughtBy).slice(-3);
+        if (this.notBought.length < 1) {
           this.isEmpty = true;
         }
         this.isLoading = false;
